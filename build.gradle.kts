@@ -29,6 +29,11 @@ kotlin.sourceSets["jsMain"].dependencies {
   implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.6.12")
 }
 
+kotlin.sourceSets["commonMain"].dependencies {
+  implementation(kotlin("stdlib-common"))
+  implementation("org.jetbrains.kotlinx:kotlinx-html-common:0.6.12")
+}
+
 val run by tasks.creating(JavaExec::class) {
   group = "application"
   main = "com.jetbrains.handson.introMpp.MainKt"
