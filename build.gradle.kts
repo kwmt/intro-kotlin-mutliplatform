@@ -4,6 +4,9 @@ plugins {
 
 kotlin {
   jvm()
+  js {
+    browser()
+  }
 }
 
 repositories {
@@ -19,6 +22,11 @@ kotlin.sourceSets["jvmMain"].dependencies {
   implementation("io.ktor:ktor-server-netty:$ktorVersion")
   implementation("io.ktor:ktor-html-builder:$ktorVersion")
   implementation("ch.qos.logback:logback-classic:$logbackVersion")
+}
+
+kotlin.sourceSets["jsMain"].dependencies {
+  implementation(kotlin("stdlib-js"))
+  implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.6.12")
 }
 
 val run by tasks.creating(JavaExec::class) {
